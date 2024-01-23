@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ed300b47-db2c-47a9-923e-0882f40e7ff6" name="Changes" comment="implemented port listening + mapping of action string to function">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Shell Script.run.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/sepp5/PycharmProjects/remoteWebsocketKeyController/run.sh"
+    "last_opened_file_path": "C:/Users/sepp5/PycharmProjects/remoteInputController"
   }
 }]]></component>
   <component name="SharedIndexes">

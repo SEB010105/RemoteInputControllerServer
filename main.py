@@ -16,7 +16,7 @@ actions = {
 
 @app.route("/", methods=["POST"])
 def handle_post():
-    json = request.get_json()
+    json = request.get_json(force=True)
 
     try:
         action = json["action"].lower()
@@ -29,4 +29,4 @@ def handle_post():
     return ""
 
 
-app.run(debug=True, port=5000)
+app.run(debug=True, port=5000, host="0.0.0.0")
