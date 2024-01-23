@@ -8,12 +8,12 @@ app = Flask(__name__,)
 CORS(app)
 
 
-actions = {
-    "press": lambda x: pyautogui.press(x),
-    "down": lambda x: pyautogui.keyDown(x),
-    "up": lambda x: pyautogui.keyUp(x),
-    "write": lambda x: pyautogui.write(x)
-}
+def handle_action(action):
+    json = request.get_json(force=True)
+
+    action(json)
+
+    return ""
 
 
 @app.route("/")
@@ -26,19 +26,39 @@ def show_read_me():
     return mkd_text
 
 
-@app.route("/test", methods=["POST"])
-def handle_post():
-    json = request.get_json(force=True)
+@app.route("/press", methods=["POST"])
+def press():
+    return handle_action(
+        lambda json: pyautogui.press(json["key"])
+    )
 
-    try:
-        action = json["action"].lower()
-        content = json["content"]
 
-        actions[action](content)
-    except KeyError:
-        return "Invalid Input", 400
+@app.route("/write", methods=["POST"])
+def write():
+    return handle_action(
+        lambda json: pyautogui.write(json["keys"])
+    )
 
-    return ""
+
+@app.route("/down", methods=["POST"])
+def down():
+    return handle_action(
+        lambda json: pyautogui.keyDown(json["key"])
+    )
+
+
+@app.route("/up", methods=["POST"])
+def up():
+    return handle_action(
+        lambda json: pyautogui.keyUp(json["key"])
+    )
+
+
+@app.route("/click", methods=["POST"])
+def click():
+    return handle_action(
+        lambda json: pyautogui.click(x=json["x"], y=json["y"], button=json["button"])
+    )
 
 
 app.run(
