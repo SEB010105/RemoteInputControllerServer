@@ -1,20 +1,35 @@
-### Usage
-Post a JSON to `localhost:PORT` (default PORT: 5000)
+## Usage
+Post a JSON to one of the endpoints of `localhost:PORT`. (default PORT: 5000)
 
-Example JSON to press `w` on the keyboard.
-```json
-{
-    "action": "press",
-    "content": "w"
-}
-```
+## Endpoints
+### /press
+Presses a key once.
 
-The attribute `action` is a string which defines what the application does.
+Attribute: 
+- `key` [string] : key to be pressed
 
-List of actions:
-- press
-- down
-- up
-- write
+### /write
+Writes multiples keys in quick succession.
 
-The attribute `content` tells the application what button to press or text to write.
+Attribute: 
+- `keys` [string] : keys to be written
+
+### /down
+Holds down a key.
+
+Attribute: 
+- `key` [string] : key to be held down
+
+### /up
+Releases a held down key.
+
+Attribute: 
+- `key` [string] : key to be released
+
+### /click
+Clicks using the mouse.
+
+Attributes: 
+- `x` [number] : x coordinate of click
+- `y` [number] : y coordinate of click 
+- `button` [string] : button to me clicked
