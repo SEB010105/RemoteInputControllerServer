@@ -1,0 +1,6 @@
+code, pre {
+    background-color: lightgray;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+    width: min-content;
+}

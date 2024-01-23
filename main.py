@@ -1,10 +1,12 @@
 import pyautogui
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_cors import CORS
+from markdown import markdown
 
 
-app = Flask(__name__)
+app = Flask(__name__,)
 CORS(app)
+
 
 actions = {
     "press": lambda x: pyautogui.press(x),
@@ -14,7 +16,17 @@ actions = {
 }
 
 
-@app.route("/", methods=["POST"])
+@app.route("/")
+def show_read_me():
+    readme = open("readme.md").read()
+    styling = "<style>" + open("style.css").read() + "</style>"
+
+    mkd_text = markdown(styling + readme, extensions=["fenced_code"])
+
+    return mkd_text
+
+
+@app.route("/test", methods=["POST"])
 def handle_post():
     json = request.get_json(force=True)
 
@@ -29,4 +41,8 @@ def handle_post():
     return ""
 
 
-app.run(debug=True, port=5000, host="0.0.0.0")
+app.run(
+    debug=True,
+    port=5000,
+    host="0.0.0.0"
+)
