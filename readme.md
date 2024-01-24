@@ -1,3 +1,6 @@
+## Introduction
+Use Remote Input Controller to remotely send inputs to a machine using REST endpoints.
+
 ## Usage
 Post a JSON to one of the endpoints of `localhost:PORT`. (default PORT: 5000)
 
