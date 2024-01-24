@@ -9,11 +9,14 @@ CORS(app)
 
 
 def handle_action(action):
-    json = request.get_json(force=True)
+    try:
+        json = request.get_json(force=True)
 
-    action(json)
+        action(json)
 
-    return ""
+        return ""
+    except TypeError:
+        return "Invalid Input - JSON required", 400
 
 
 @app.route("/")

@@ -1,6 +1,38 @@
-code, pre {
-    background-color: lightgray;
-    border-radius: 0.3rem;
-    padding: 0.3rem;
-    width: min-content;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  --link-color: #01ff70;
+  --link-hover-color: #2ecc40;
+}
+
+html,
+body {
+  background-color: #222222;
+  min-height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  color: #fafafa;
+  font-family: "Roboto";
+  line-height: 1.45;
+  margin: 6rem auto 1rem;
+  max-width: 48rem;
+  padding: .25rem;
+}
+
+pre, code {
+  background-color: #333333;
+  border-radius: 5px;
+  padding: 0.2rem;
+  font-family: "Roboto Mono";
+}
+
+blockquote {
+  border-left: 3px solid var(--link-color);
+  padding-left: 1rem;
 }
