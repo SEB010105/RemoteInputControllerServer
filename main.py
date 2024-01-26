@@ -1,10 +1,12 @@
 import pyautogui
-from flask import Flask, request, render_template
+from flask import Flask, request
 from flask_cors import CORS
 from markdown import markdown
+import os.path
 
 
-app = Flask(__name__,)
+rootFolder = os.path.abspath(os.path.dirname(__file__))
+app = Flask(__name__, template_folder="")
 CORS(app)
 
 
@@ -21,8 +23,8 @@ def handle_action(action):
 
 @app.route("/")
 def show_read_me():
-    readme = open("readme.md").read()
-    styling = "<style>" + open("style.css").read() + "</style>"
+    readme = open(rootFolder + "\\readme.md").read()
+    styling = "<style>" + open(rootFolder + "\\style.css").read() + "</style>"
 
     mkd_text = markdown(styling + readme, extensions=["fenced_code"])
 

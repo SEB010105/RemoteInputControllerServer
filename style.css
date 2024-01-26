@@ -6,6 +6,10 @@
   --link-hover-color: #2ecc40;
 }
 
+h2 {
+    padding-top: 2rem;
+}
+
 html,
 body {
   background-color: #222222;
